@@ -1,0 +1,78 @@
+package login;
+
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class LoginGUI  extends JFrame implements ActionListener{
+	
+	private JTextField userField;
+	private JPasswordField passwordField;
+	private JButton loginButton;
+	private JLabel messageLabel;
+	
+	// credenciales por defecto
+	private final String USUARIO_CORRECTO ="admin";
+	private final String PASSWORD_CORRECTO="1234";
+	
+	public LoginGUI() {
+		setTitle("Login");
+		setSize(300,200);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new GridLayout(4,1));
+		
+		//crear componentes
+		userField = new JTextField();
+		passwordField = new JPasswordField();
+		loginButton = new JButton("Iniciar Sesión");
+		messageLabel = new JLabel("", SwingConstants.CENTER);
+		
+		loginButton.addActionListener(this);
+		
+		add(new JLabel("Usuario: "));
+		add(userField);
+		add(new JLabel("Clave: "));
+		add(passwordField);
+		add(loginButton);
+		add(messageLabel);
+		
+		setVisible(true);
+		
+	}
+	
+		
+
+	@Override
+	public void actionPerfomed(ActionEvent e) {
+		String usuarioIngresado = userField.getText();
+		String passwordIngresado = new String(passwordField.getPassword());
+		
+		if(usuarioIngresado.equals(USUARIO_CORRECTO) && passwordIngresado.equals(PASSWORD_CORRECTO)) {
+			messageLabel.setText("Acceso Permitido");
+			messageLabel.setForeground(Color.GREEN);
+		} else {
+			messageLabel.setText("Usuario o Clave incorrecta");
+			messageLabel.setForeground(Color.RED);
+		}
+	}
+
+
+
+
+
+
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		new LoginGUI();
+	}
+
+}

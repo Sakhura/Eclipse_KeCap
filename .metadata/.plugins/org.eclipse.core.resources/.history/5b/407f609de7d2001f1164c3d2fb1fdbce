@@ -1,0 +1,17 @@
+package Prueba;
+
+public class JLuis {
+	public static void main(String[] arg) {
+		System.out.println("Esto es uns Suma");
+		int resultado = metodoEntero();
+		System.out.println("El resultado es: " + resultado);
+		
+	}
+	
+	public static int metodoEntero() {
+		int suma = 5 + 5;
+		return suma;
+	}
+		
+	
+}

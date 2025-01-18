@@ -1,0 +1,28 @@
+package Prueba;
+
+import java.util.Vector;
+
+public class VectorTexto {
+
+	public static void main(String[] args) {
+		
+		Vector<String> vector = new Vector<>();
+		
+		vector.add("Java");
+		vector.add("Python");
+		vector.add("C++");
+		vector.add("Kotlin");
+		
+		String firstElement = vector.get(0);
+		System.out.println("Primer elemento: " + firstElement);
+		
+		System.out.println("Elementos en el vector: ");
+		for(String element : vector) {
+			System.out.println(element);
+		}
+		
+		vector.remove("C++");
+		System.out.println("Elementos despues de eliminar C++: " + vector);
+	}
+
+}
